@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class App {
     // Count of random numbers to be generated
-    public static final int numbersCount = 10;
+    private static final int numbersCount = 10;
 
     public static void main(String[] args) throws IOException {
         RandomFileManager fileManager = new RandomFileManager();
