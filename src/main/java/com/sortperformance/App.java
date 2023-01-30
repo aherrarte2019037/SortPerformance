@@ -8,11 +8,13 @@ public class App {
     public static final int numbersCount = 10;
 
     public static void main(String[] args) throws IOException {
-        // Save random numbers to file
         RandomFileManager fileManager = new RandomFileManager();
-        fileManager.saveRandomNumbers(numbersCount);
+        SortList sortList = new SortList();
 
-        // Read random numbers from file
+        fileManager.saveRandomNumbers(numbersCount);
         ArrayList<SortItem> randomNumbers = fileManager.readRandomNumbers();
+
+        Long timeMicroseconds = Profiler.test((list) -> sortList.gnome(list), randomNumbers);
+        System.out.println(timeMicroseconds);
     }
 }

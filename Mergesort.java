@@ -3,8 +3,7 @@ class MergeSort {
 	// Merges two subarrays of arr[].
 	// First subarray is arr[l..m]
 	// Second subarray is arr[m+1..r]
-	void merge(int arr[], int l, int m, int r)
-	{
+	void merge(int arr[], int l, int m, int r) {
 		// Find sizes of two subarrays to be merged
 		int n1 = m - l + 1;
 		int n2 = r - m;
@@ -13,7 +12,7 @@ class MergeSort {
 		int L[] = new int[n1];
 		int R[] = new int[n2];
 
-		/*Copy data to temp arrays*/
+		/* Copy data to temp arrays */
 		for (int i = 0; i < n1; ++i)
 			L[i] = arr[l + i];
 		for (int j = 0; j < n2; ++j)
@@ -30,8 +29,7 @@ class MergeSort {
 			if (L[i] <= R[j]) {
 				arr[k] = L[i];
 				i++;
-			}
-			else {
+			} else {
 				arr[k] = R[j];
 				j++;
 			}
@@ -55,8 +53,7 @@ class MergeSort {
 
 	// Main function that sorts arr[l..r] using
 	// merge()
-	void sort(int arr[], int l, int r)
-	{
+	void sort(int arr[], int l, int r) {
 		if (l < r) {
 			// Find the middle point
 			int m = l + (r - l) / 2;
@@ -71,8 +68,7 @@ class MergeSort {
 	}
 
 	/* A utility function to print array of size n */
-	static void printArray(int arr[])
-	{
+	static void printArray(int arr[]) {
 		int n = arr.length;
 		for (int i = 0; i < n; ++i)
 			System.out.print(arr[i] + " ");
@@ -80,8 +76,7 @@ class MergeSort {
 	}
 
 	// Driver code
-	public static void main(String args[])
-	{
+	public static void main(String args[]) {
 		int arr[] = { 12, 11, 13, 5, 6, 7 };
 
 		System.out.println("Given Array");
