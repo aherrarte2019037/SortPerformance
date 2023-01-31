@@ -9,12 +9,13 @@ public class App {
 
     public static void main(String[] args) throws IOException {
         RandomFileManager fileManager = new RandomFileManager();
-        SortList sortList = new SortList();
 
         fileManager.saveRandomNumbers(numbersCount);
         ArrayList<SortItem> randomNumbers = fileManager.readRandomNumbers();
 
-        Long timeMicroseconds = Profiler.test((list) -> sortList.gnome(list), randomNumbers);
+        GnomeSort gnomeSort = new GnomeSort();
+        Long timeMicroseconds = Profiler.test((list) -> gnomeSort.execute(list), randomNumbers);
+
         System.out.println(timeMicroseconds);
     }
 }

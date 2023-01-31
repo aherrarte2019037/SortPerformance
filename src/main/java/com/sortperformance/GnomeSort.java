@@ -3,9 +3,9 @@ package com.sortperformance;
 import java.util.ArrayList;
 
 @SuppressWarnings("unchecked")
-public class SortList {
+public class GnomeSort implements Sorter {
 
-    public ArrayList<SortItem> gnome(ArrayList<SortItem> list) {
+    public ArrayList<SortItem> execute(ArrayList<SortItem> list) {
         ArrayList<SortItem> listClone = (ArrayList<SortItem>) list.clone();
 
         int i = 1;

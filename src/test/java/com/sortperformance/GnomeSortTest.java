@@ -7,18 +7,18 @@ import java.util.Collections;
 
 import org.junit.Test;
 
-public class SortListTest {
+public class GnomeSortTest {
     private static final int numbersCount = 20;
 
     @Test
     public void gnomeShouldSort() throws IOException {
         RandomFileManager fileManager = new RandomFileManager();
-        SortList sortList = new SortList();
+        GnomeSort gnomeSort = new GnomeSort();
 
         fileManager.saveRandomNumbers(numbersCount);
         ArrayList<SortItem> randomNumbers = fileManager.readRandomNumbers();
 
-        ArrayList<SortItem> gnomeSorted = sortList.gnome(randomNumbers);
+        ArrayList<SortItem> gnomeSorted = gnomeSort.execute(randomNumbers);
         ArrayList<SortItem> sorted = fileManager.readRandomNumbers();
 
         Collections.sort(sorted);
