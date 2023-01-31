@@ -11,7 +11,7 @@ public class MergeSort implements Sorter {
 		return listClone;
 	}
 
-	void merge(ArrayList<SortItem> arr, int l, int m, int r) {
+	private void merge(ArrayList<SortItem> arr, int l, int m, int r) {
 		// Find sizes of two subarrays to be merged
 		int n1 = m - l + 1;
 		int n2 = r - m;
@@ -53,7 +53,7 @@ public class MergeSort implements Sorter {
 		}
 	}
 
-	void sort(ArrayList<SortItem> arr, int l, int r) {
+	private void sort(ArrayList<SortItem> arr, int l, int r) {
 		if (l < r) {
 			// Find the middle point
 			int m = l + (r - l) / 2;

@@ -2,14 +2,13 @@ package com.sortperformance;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
 
 public class Profiler {
 
-    public static Long test(Consumer<ArrayList<SortItem>> consumer, ArrayList<SortItem> list) {
+    public static Long test(ArrayList<SortItem> list, Sorter sorter) {
         long start = System.nanoTime();
 
-        consumer.accept(list);
+        sorter.execute(list);
 
         long finish = System.nanoTime();
 
