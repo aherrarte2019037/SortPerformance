@@ -14,8 +14,11 @@ public class App {
         ArrayList<SortItem> randomNumbers = fileManager.readRandomNumbers();
 
         GnomeSort gnomeSort = new GnomeSort();
-        Long timeMicroseconds = Profiler.test((list) -> gnomeSort.execute(list), randomNumbers);
+        Long gnomeTime = Profiler.test((list) -> gnomeSort.execute(list), randomNumbers);
+        System.out.println("Gnome sort: " + gnomeTime + " microsegundos");
 
-        System.out.println(timeMicroseconds);
+        MergeSort mergeSort = new MergeSort();
+        Long mergeTime = Profiler.test((list) -> mergeSort.execute(list), randomNumbers);
+        System.out.println("Merge sort: " + mergeTime + " microsegundos");
     }
 }
