@@ -34,7 +34,7 @@ public class InsertSortTest {
         System.out.println("sort");
         int[] arr = null;
         InsertSort instance = new InsertSort();
-        instance.sort(arr);
+        //instance.sort(arr);
         fail("The test case is a prototype.");
     }
 
@@ -42,7 +42,7 @@ public class InsertSortTest {
     public void testPrintArray() {
         System.out.println("printArray");
         int[] arr = null;
-        InsertSort.printArray(arr);
+        //InsertSort.printArray(arr);
         fail("The test case is a prototype.");
     }
 
@@ -50,7 +50,7 @@ public class InsertSortTest {
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        InsertSort.main(args);
+        //InsertSort.main(args);
         fail("The test case is a prototype.");
     }
     

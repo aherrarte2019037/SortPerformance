@@ -22,7 +22,7 @@ public class App {
         long insertAverage = 0;
         long insertAverageAlreadyOrdered = 0;
         
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 3; i++) {
             MergeSort mergeSort = new MergeSort();
             long mergeTime = Profiler.test(randomNumbers, mergeSort);
             long mergeTimeAlreadyOrdered = Profiler.testAlreadyOrdered(numbersCount, mergeSort);
@@ -48,17 +48,17 @@ public class App {
             insertAverageAlreadyOrdered = insertAverageAlreadyOrdered + insertTimeAlreadyOrdered;
         }
 
-        mergeAverage = mergeAverage / 100;
-        mergeAverageAlreadyOrdered = mergeAverageAlreadyOrdered / 100;
+        mergeAverage = mergeAverage / 3;
+        mergeAverageAlreadyOrdered = mergeAverageAlreadyOrdered / 3;
 
-        gnomeAverage = gnomeAverage / 100;
-        gnomeAverageAlreadyOrdered = gnomeAverageAlreadyOrdered / 100;
+        gnomeAverage = gnomeAverage / 3;
+        gnomeAverageAlreadyOrdered = gnomeAverageAlreadyOrdered / 3;
 
-        radixAverage = radixAverage / 100;
-        radixAverageAlreadyOrdered = radixAverageAlreadyOrdered / 100;
+        radixAverage = radixAverage / 3;
+        radixAverageAlreadyOrdered = radixAverageAlreadyOrdered / 3;
         
-        insertAverage = insertAverage / 100;
-        insertAverageAlreadyOrdered = insertAverageAlreadyOrdered / 100;
+        insertAverage = insertAverage / 3;
+        insertAverageAlreadyOrdered = insertAverageAlreadyOrdered / 3;
 
         System.out.println("Merge sort: " + mergeAverage + " microsegundos");
         System.out.println("Merge sort already ordered: " + mergeAverageAlreadyOrdered + " microsegundos");
@@ -70,6 +70,7 @@ public class App {
 
         System.out.println("Radix sort: " + radixAverage + " microsegundos");
         System.out.println("Radix sort already ordered: " + radixAverageAlreadyOrdered + " microsegundos");
+        System.out.println();
         
         System.out.println("Insert sort: " + insertAverage + " microsegundos");
         System.out.println("Insert sort already ordered: " + insertAverageAlreadyOrdered + " microsegundos");
