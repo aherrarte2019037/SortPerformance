@@ -19,7 +19,9 @@ public class App {
         long gnomeAverageAlreadyOrdered = 0;
         long radixAverage = 0;
         long radixAverageAlreadyOrdered = 0;
-
+        long insertAverage = 0;
+        long insertAverageAlreadyOrdered = 0;
+        
         for (int i = 0; i < 100; i++) {
             MergeSort mergeSort = new MergeSort();
             long mergeTime = Profiler.test(randomNumbers, mergeSort);
@@ -38,6 +40,12 @@ public class App {
             long radixTimeAlreadyOrdered = Profiler.testAlreadyOrdered(numbersCount, radixSort);
             radixAverage = radixAverage + radixTime;
             radixAverageAlreadyOrdered = radixAverageAlreadyOrdered + radixTimeAlreadyOrdered;
+        
+            InsertSort insertSort = new InsertSort();
+            long insertTime = Profiler.test(randomNumbers, insertSort);
+            long insertTimeAlreadyOrdered = Profiler.testAlreadyOrdered(numbersCount, insertSort);
+            insertAverage = insertAverage + insertTime;
+            insertAverageAlreadyOrdered = insertAverageAlreadyOrdered + insertTimeAlreadyOrdered;
         }
 
         mergeAverage = mergeAverage / 100;
@@ -48,6 +56,9 @@ public class App {
 
         radixAverage = radixAverage / 100;
         radixAverageAlreadyOrdered = radixAverageAlreadyOrdered / 100;
+        
+        insertAverage = insertAverage / 100;
+        insertAverageAlreadyOrdered = insertAverageAlreadyOrdered / 100;
 
         System.out.println("Merge sort: " + mergeAverage + " microsegundos");
         System.out.println("Merge sort already ordered: " + mergeAverageAlreadyOrdered + " microsegundos");
@@ -59,5 +70,8 @@ public class App {
 
         System.out.println("Radix sort: " + radixAverage + " microsegundos");
         System.out.println("Radix sort already ordered: " + radixAverageAlreadyOrdered + " microsegundos");
+        
+        System.out.println("Insert sort: " + insertAverage + " microsegundos");
+        System.out.println("Insert sort already ordered: " + insertAverageAlreadyOrdered + " microsegundos");
     }
 }
