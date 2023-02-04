@@ -21,6 +21,8 @@ public class App {
         long radixAverageAlreadyOrdered = 0;
         long insertAverage = 0;
         long insertAverageAlreadyOrdered = 0;
+        long quickAverage = 0;
+        long quickAverageAlreadyOrdered = 0;
         
         for (int i = 0; i < 3; i++) {
             MergeSort mergeSort = new MergeSort();
@@ -46,6 +48,12 @@ public class App {
             long insertTimeAlreadyOrdered = Profiler.testAlreadyOrdered(numbersCount, insertSort);
             insertAverage = insertAverage + insertTime;
             insertAverageAlreadyOrdered = insertAverageAlreadyOrdered + insertTimeAlreadyOrdered;
+
+            QuickSort quickSort = new QuickSort();
+            long quickTime = Profiler.test(randomNumbers, quickSort);
+            long quickTimeAlreadyOrdered = Profiler.testAlreadyOrdered(numbersCount, quickSort);
+            quickAverage = quickAverage + quickTime;
+            quickAverageAlreadyOrdered = quickAverageAlreadyOrdered + quickTimeAlreadyOrdered;
         }
 
         mergeAverage = mergeAverage / 3;
@@ -59,6 +67,9 @@ public class App {
         
         insertAverage = insertAverage / 3;
         insertAverageAlreadyOrdered = insertAverageAlreadyOrdered / 3;
+
+        quickAverage = quickAverage / 3;
+        quickAverageAlreadyOrdered = quickAverageAlreadyOrdered / 3;
 
         System.out.println("Merge sort: " + mergeAverage + " microsegundos");
         System.out.println("Merge sort already ordered: " + mergeAverageAlreadyOrdered + " microsegundos");
@@ -74,5 +85,9 @@ public class App {
         
         System.out.println("Insert sort: " + insertAverage + " microsegundos");
         System.out.println("Insert sort already ordered: " + insertAverageAlreadyOrdered + " microsegundos");
+        System.out.println();
+
+        System.out.println("Quick sort: " + quickAverage + " microsegundos");
+        System.out.println("Quick sort already ordered: " + quickAverageAlreadyOrdered + " microsegundos");
     }
 }

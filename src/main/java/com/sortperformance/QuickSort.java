@@ -1,60 +1,58 @@
-package main.java.com.sortperformance;
+package com.sortperformance;
 
 import java.util.ArrayList;
-
-import javax.lang.model.util.ElementScanner14;
 
 @SuppressWarnings("unchecked")
 public class QuickSort implements Sorter {
 
-    public ArrayList<SortItem> execute(ArrayList<SortItem> list){
+    public ArrayList<SortItem> execute(ArrayList<SortItem> list) {
         ArrayList<SortItem> listClone = (ArrayList<SortItem>) list.clone();
 
         listClone = quicksort1(listClone);
-
+        return listClone;
     }
 
-    public int[] quicksort1(int numeros[]){
+    public ArrayList<SortItem> quicksort1(ArrayList<SortItem> numeros) {
 
-        return quicksort2(numeros, 0, numeros.length-1);
+        return quicksort2(numeros, 0, numeros.size() - 1);
     }
 
-    public int[] quicksort2(int numeros[], int izq, int der){
+    public ArrayList<SortItem> quicksort2(ArrayList<SortItem> numeros, int izq, int der) {
 
-        if(izq >= der)
+        if (izq >= der)
             return numeros;
         int i = izq, d = der;
-        if (izq!= der){
+        if (izq != der) {
 
             int pivote;
-            int aux; 
+            int aux;
             pivote = izq;
-            while(izq!=der){
+            while (izq != der) {
 
-                while(numeros[der]>=numeros[pivote] && izq<der)
-                    der --;
-                while(numeros[izq]<numeros[pivote] && izq<der)
+                while (numeros.get(der).getValue() >= numeros.get(pivote).getValue() && izq < der)
+                    der--;
+                while (numeros.get(izq).getValue() < numeros.get(pivote).getValue() && izq < der)
                     izq++;
 
-                if(der != izq){
+                if (der != izq) {
 
-                    aux = numeros[der];
-                    numeros[der] = numeros[izq];
-                    numeros[izq] = aux;}
+                    aux = numeros.get(der).getValue();
+                    numeros.set(der, new SortItem(numeros.get(izq).getValue()));
+                    numeros.set(izq, new SortItem(aux));
                 }
+            }
 
-            if(izq == der){
+            if (izq == der) {
 
-                quicksort2(numeros, i, izq-1);
-                quicksort2(numeros, izq+1, d);
+                quicksort2(numeros, i, izq - 1);
+                quicksort2(numeros, izq + 1, d);
             }
         }
 
         else
             return numeros;
         return numeros;
-            
 
     }
-         
+
 }
