@@ -1,7 +1,7 @@
 package com.sortperformance;
 
 import java.util.ArrayList;
-
+// Base del programa tomadas de la pagina geeksforgeeks
 @SuppressWarnings("unchecked")
 public class MergeSort implements Sorter {
 	public ArrayList<SortItem> execute(ArrayList<SortItem> list) {
