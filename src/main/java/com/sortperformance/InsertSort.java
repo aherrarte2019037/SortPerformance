@@ -13,7 +13,7 @@ public class InsertSort implements Sorter {
 		return listClone;
 	}
 
-	private void sort(ArrayList<SortItem> arr) {
+	void sort(ArrayList<SortItem> arr) {
 		int n = arr.size();
 		for (int i = 1; i < n; ++i) {
 			int key = arr.get(i).getValue();

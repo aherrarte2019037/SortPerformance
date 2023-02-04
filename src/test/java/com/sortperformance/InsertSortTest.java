@@ -5,7 +5,10 @@
  */
 package com.sortperformance;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,44 +17,22 @@ import static org.junit.Assert.*;
  * @author 50250
  */
 public class InsertSortTest {
-    
-    public InsertSortTest() {
-    }
+    private static final int numbersCount = 20;
 
     @Test
-    public void testExecute() {
-        System.out.println("execute");
-        ArrayList<SortItem> list = null;
-        InsertSort instance = new InsertSort();
-        ArrayList<SortItem> expResult = null;
-        ArrayList<SortItem> result = instance.execute(list);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
+    public void testSort() throws IOException {
+        RandomFileManager fileManager = new RandomFileManager();
+        InsertSort insertSort = new InsertSort();
 
-    @Test
-    public void testSort() {
-        System.out.println("sort");
-        int[] arr = null;
-        InsertSort instance = new InsertSort();
-        //instance.sort(arr);
-        fail("The test case is a prototype.");
-    }
+        fileManager.saveRandomNumbers(numbersCount);
+        ArrayList<SortItem> randomNumbers = fileManager.readRandomNumbers();
 
-    @Test
-    public void testPrintArray() {
-        System.out.println("printArray");
-        int[] arr = null;
-        //InsertSort.printArray(arr);
-        fail("The test case is a prototype.");
-    }
+        ArrayList<SortItem> radixSorted = insertSort.execute(randomNumbers);
+        ArrayList<SortItem> sorted = fileManager.readRandomNumbers();
 
-    @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        //InsertSort.main(args);
-        fail("The test case is a prototype.");
+        Collections.sort(sorted);
+
+        assertEquals(radixSorted.get(0).getValue(), 1);
+        assertEquals(radixSorted.get(19).getValue(), 20);
     }
-    
 }
